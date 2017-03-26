@@ -1,7 +1,6 @@
-FROM alpine:edge
+FROM alpine:3.5
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-    apk add --no-cache asciidoc openjdk8-jre-base curl texlive && \
+RUN apk add --no-cache asciidoc openjdk8-jre-base curl texlive && \
     curl -o /tmp/fop.tar.gz http://ftp.unicamp.br/pub/apache/xmlgraphics/fop/binaries/fop-2.1-bin.tar.gz && \
     tar -zxC /usr/local/ -f /tmp/fop.tar.gz && \
     rm /tmp/fop.tar.gz && \
